@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class='row'>
+        <div class='col-10'>
+            <h1 id='title'>UPDATE MARK </h1>
+        </div>
+        <div class='col'>
+            <input type="button" value="back" onclick="history.back()" class="btn btn-primary btn-lg px-2 py-0" id="move">
+        </div>
+    </div>
+<div class='container'>
+    <div class="row">
+        <div class="col-6">
+    <div class="row">
+        <div class="col-2">
+            <b>Name </b>
+        </div>
+        <div class="col">
+            <p>: {{ na }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <b>Mark </b>
+        </div>
+        <div class="col">
+            <p>: {{ m }}</p>
+        </div>
+    </div>
+    </div>
+<div class="col-6">
+    <form method='POST'>{% csrf_token %}
+        
+        <input id='idd' type="hidden" name='idd' value="{{id}}">
+        
+            <div class="col-5">
+                <p> {{ form.mark|as_crispy_field }}</p>
+            </div>
+
+        <input id='bf' type="submit" value="update">
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}
+
+<!--
+    id{{ form.idd }}<br>
+-->

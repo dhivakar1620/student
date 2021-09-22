@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class='row'>
+        <div class='col-10'>
+            <h1 id='title'>RESULT</h1>
+        </div>
+        <div class='col'>
+            <a href="{% url 'student' %}">
+                <button type="button" class="btn btn-primary btn-lg px-2 py-0" id="move">
+                    Home
+                </button>
+            </a>
+        </div>
+    </div>
+<div class='container'>
+    <div class="row">
+        <div class="col-7">
+            <h3><b>the total number of student</b></h3>
+        </div>
+        <div class="col">
+            <h3><p>: {{ s }}</p></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <h3><b>the number of students in each grade </b></h3>
+        </div>
+        <div class="col">
+            <h3>
+                <p>: A({{ a }}),B({{ b }}),C({{ c }}),D({{ d }}),E({{ e }}),F({{ f }})</p>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <h3><b>Distinction %</b></h3>
+        </div>
+        <div class="col">
+            <h3>
+                <p>: {{ dc }}%</p>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <h3><b>first class %</b></h3>
+        </div>
+        <div class="col">
+            <h3>
+                <p>: {{ fc }}%</p>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7">
+            <h3><b>pass %</b></h3>
+        </div>
+        <div class="col">
+            <h3>
+                <p>: {{ s }}%</p>
+            </h3>
+        </div>
+    </div>
+</div>
+{% endblock %}

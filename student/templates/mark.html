@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class='row'>
+        <div class='col-10'>
+            <h1 id='title'> Student Mark</h1>
+        </div>
+        <div class='col'>
+            <a href="{% url 'student' %}">
+                <button type="button" class="btn btn-primary btn-lg px-2 py-0" id="move">
+                    Home
+                </button>
+            </a>
+        </div>
+    </div>
+<div class='container'>
+    <div class="row">     
+            <div class="col-2">
+                <b>Name</b>
+            </div>
+            <div class="col">
+                <p>: {{ na }}</p>
+            </div>       
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <b>Mark</b>
+        </div>
+        <div class="col">
+            <p>: {{ m }}</p>
+        </div>
+    </div>
+ 
+
+        <a href="{% url 'add' id %}" >
+            <button id='bd' type="submit" class="btn btn-success btn-lg px-2 py-0">
+                Change
+            </button>
+        </a>
+        <a href="{% url 'del' id %}">
+            <button id='bd' type="submit" class="btn btn-danger btn-lg px-2 py-0">
+                delete
+            </button>
+        </a>
+    
+</div>
+{% endblock %}

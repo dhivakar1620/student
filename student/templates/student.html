@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class='row'>
+    <div class='col-5'>
+        <h1 id='title'>STUDENTS</h1>
+    </div>
+    <div class='col-5'>
+        <div class='srb'>
+            <form action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+                <input type="search" id="srt" placeholder="Search Name..." name="ss">
+                <input class="btn btn-secondary btn-lg px-2 py-0" id="sr"
+                    type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+    <div class='col'>
+        <a href="{% url 'result' %}" >
+            <button type="button" class="btn btn-primary btn-lg px-2 py-0" id="move">
+                Results
+            </button>
+        </a>
+    </div>
+</div>
+
+
+
+<div class='container'>
+<div class='row'>
+    
+    <div class='col-4' id='add'>
+        <div class='st'>
+        <form method='POST'>{% csrf_token %}
+            <h2>Add New Student</h2>
+
+            {{ form|crispy }}
+            <input id='bb' type="submit" value="Save" >
+
+        </form>
+        
+    </div>
+    </div>
+    
+    <div class='col-8'>
+        <div class='sf'><center><h2>Show Student Information</h2></center></div>
+        <div class='sw'>
+        <div class="row">
+            
+            <div class='col-1'>
+                <b>S.NO</b>
+            </div>
+            <div class='col-3'>
+                <b>Name</b>
+            </div>
+            <div class='col-3'>
+                <b>Roll no</b>
+            </div>
+            <div class='col-3'>
+                <b> DOB</b>
+            </div>
+            
+        </div>
+        </div>
+    {% if std %}
+        {% for i in std %}
+                <div class="row">
+                    <div class='col-1'>
+                            <p>{{ forloop.counter }}</p>
+                    </div>
+                    <div class='col-3'>
+                        <p>{{ i.name }}</p>
+                    </div>
+                    <div class='col-3'>
+                        <p>{{ i.roll_no }}</p>
+                    </div>
+                    <div class='col-3'>
+                        <p>{{ i.dob }}</p>
+                    </div>
+                    <div class='col-1'>
+                        <a href="{% url 'mark' i.id %}">
+                            <button id='v' type="submit" class="btn btn-primary btn-lg px-2 py-0" >
+                                view
+                            </button>
+                        </a>
+                    </div>
+                </div> 
+                          
+        {% endfor %}
+    {% endif %}
+    </div>
+</div>
+</div>
+{% endblock %}

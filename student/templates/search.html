@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class='row'>
+    <div class='col-5'>
+        <h1 id='title'>SEARCH..</h1>
+    </div>
+
+    <div class='col-5'>
+        <div class='srb'>
+            <form action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+                <input type="search" id="srt" placeholder="Search Name..." name="ss">
+                <input class="btn btn-secondary btn-lg px-2 py-0" id="sr" type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+
+    <div class='col'>
+        <a href="{% url 'student' %}">
+            <button type="button" class="btn btn-primary btn-lg px-2 py-0" id="move">
+                Home
+            </button>
+        </a>
+    </div>
+</div>
+
+
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-8'>
+            <div class='sf'>
+                <center>
+                    <h2>You Searched For {{ na }}</h2>
+                </center>
+            </div>
+            
+            {% if dt %}
+            <div class='sw'>
+                <div class="row">
+            
+                    <div class='col-1'>
+                        <b>S.NO</b>
+                    </div>
+                    <div class='col-3'>
+                        <b>Name</b>
+                    </div>
+                    <div class='col-3'>
+                        <b>Roll no</b>
+                    </div>
+                    <div class='col-3'>
+                        <b> DOB</b>
+                    </div>
+            
+                </div>
+            </div>
+            {% for d in dt %}
+                <div class="row">
+                    <div class='col-1'>
+                        <p>{{ forloop.counter }}</p>
+                    </div>
+                    <div class='col-3'>
+                        <p>{{ d.name }}</p>
+                    </div>
+                    <div class='col-3'>
+                        <p>{{d.roll_no }}</p>
+                    </div>
+                    <div class='col-3'>
+                        <p>{{ d.dob }}</p>
+                    </div>
+                    <div class='col-1'>
+                        <a href="{% url 'mark' d.id %}">
+                            <button id='v' type="submit" class="btn btn-primary btn-lg px-2 py-0">
+                                view
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            {% else %}
+                
+                   <center> <h3>{{ f }}</h3></center>
+                
+        
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

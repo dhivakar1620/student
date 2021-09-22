@@ -1,0 +1,71 @@
+h1{
+    font-weight: 700;
+    margin-left: 5%;
+}
+#bb{
+    margin: 20px;
+    width: 90%;
+    height: 40px;
+    color: rgb(252, 253, 251);
+    background-color: rgb(34, 218, 34);
+    border-radius: 7px;
+}
+#bd{
+    margin: 20px;
+    width: 10%;
+    height: 40px;
+    border-radius: 7px;
+}
+#bf{
+    margin: 20px;
+    width: 35%;
+    height: 40px;
+    color: rgb(252, 253, 251);
+    background-color: rgb(34, 218, 34);
+    border-radius: 7px;
+}
+#feed1{
+    margin: 20px;
+}
+
+.st{
+    position:sticky;
+    top:200px;
+}
+.sf{
+    padding-top: 30px;
+    height: 80px;
+    position:sticky;
+    background-color: rgb(255, 255, 255);
+    top:0px;
+}
+.sw{
+    height: 30px;
+    background-color: grey;
+    position:sticky;
+    top:80px;
+    margin-bottom: 5px;
+}
+
+#move{
+    width: 80px;
+}
+#v{
+    width: 90px;
+}
+.srb{
+    margin-left:80px ;
+}
+#sr{
+    font-weight: 10px;
+    margin-left: 10px;
+}
+#srt{
+    width:280px;
+    
+}
+#mm{
+    width: 400px;
+    margin-left: 75%;
+}
+
